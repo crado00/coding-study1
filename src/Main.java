@@ -5,18 +5,17 @@ public class Main {
         int a = 10;
         int b = 3;
 
-        int sum = a + b;
-        System.out.println(sum);
+        a += 5; // a = a + 5;
 
-        int difference = a - b;
-        int product = a * b;
-        int quotient = a / b;
-        int remainder = a % b;
+        System.out.println(a);
 
-        System.out.println(difference);
-        System.out.println(product);
-        System.out.println(quotient);
-        System.out.println(remainder);
-
+        b -= 1;
+        System.out.println(b);
+        b *= 15;
+        System.out.println(b);
+        b /= 3;
+        System.out.println(b);
+        b %= 7;
+        System.out.println(b);
     }
 }
