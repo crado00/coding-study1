@@ -2,24 +2,15 @@
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
     public static void main(String[] args) {
-        int age = 20;
-        boolean hasID = true;
-        if(age >= 18 && hasID) {
-            System.out.println("접속 가능.");
-        }
+        int a = 10;
+        int b = 7;
 
-        boolean isWeekend = false;
-        boolean isHoliday = true;
+        System.out.println("a == b : " + (a == b));
+        System.out.println("a != b : " + (a != b));
 
-        if(isWeekend || isHoliday) {
-            System.out.println("쉴 수 있습니다.");
-        }
-
-        boolean isRainging = true;
-        if(!isRainging) {
-            System.out.println("그냥 나가");
-        }else {
-            System.out.println("우산 챙겨");
-        }
+        System.out.println("a > b : " + (a > b));
+        System.out.println("a < b : " + (a < b));
+        System.out.println("a >= 10 : " + (a >= 10));
+        System.out.println("b <= 5 : " + (b <= 5));
     }
 }
