@@ -2,28 +2,24 @@
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
     public static void main(String[] args) {
-        int number = 5;
-
-        if (number > 0) {
-            System.out.println("Number는 0보다 큽니다.");
-        }
-        if (number < 0) {
-            System.out.println("Number는 0보다 작습니다.");
-        }
-        if (number >= 0) {
-            System.out.println("Number는 0보다 크거나 같습니다.");
-        }
-        if (number <= 0) {
-            System.out.println("Number는 0보다 작거나 같습니다.");
+        int age = 20;
+        boolean hasID = true;
+        if(age >= 18 && hasID) {
+            System.out.println("접속 가능.");
         }
 
-        if (number > 0) {
-            System.out.println("number는 0보다 큽니다.");
-        }else if(number < 0){
-            System.out.println("number는 0보다 작습니다.");
+        boolean isWeekend = false;
+        boolean isHoliday = true;
+
+        if(isWeekend || isHoliday) {
+            System.out.println("쉴 수 있습니다.");
+        }
+
+        boolean isRainging = true;
+        if(!isRainging) {
+            System.out.println("그냥 나가");
         }else {
-            System.out.println("number는 0입니다.");
-
+            System.out.println("우산 챙겨");
         }
     }
 }
