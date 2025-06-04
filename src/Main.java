@@ -2,51 +2,41 @@
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
     public static void main(String[] args) {
-        for (int i = 1; i <= 10; i++) {
-            for (int j = 1; j <= i; j++) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
 
-        int number = 5;
-        for (int i = 1; i <= 9; i++) {
-            System.out.println(number + " x " + i + " = " + (number * i));
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
         }
-        int number2 = 8;
-        for (int i = 1; i <= 9; i++) {
-            System.out.println(number2 + " x " + i + " = " + (number2 * i));
+        int i = 0;
+        while (i < 5){
+            System.out.println(i);
+            i++;
         }
-        for (int i = 1; i <= 19; i++) {
-            System.out.println(number + " x " + i + " = " + (number * i));
-        }
-        for (int i = 9; i >= 1; i--) {
-            System.out.println(number + " x " + i + " = " + (number * i));
-        }
-        for (int i = 1; i <= 19; i++) {
-            if (i >= 5) {
-                System.out.println(number + " x " + i + " = " + (number * i));
+        int j = 0;
+        do {
+            System.out.println(j);
+            j++;
+        }while(j < 5);
+
+
+        int input = 0;
+
+        do {
+            System.out.println("안녕하세요 자판기 입니다.");
+
+            switch (input) {
+                case 1:
+                    System.out.println("콜라");
+                    break;
+                case 2:
+                    System.out.println("사이다");
+                    break;
+                case 3:
+                    System.out.println("물");
+                    break;
+                default:
+                    System.out.println("잘못 고름ㅋ");
             }
-        }
-        for(int i = 1; i <= 10; i++) {
-            if(i % 2 == 0) {
-                System.out.println("i 는 " + i);
-            }
-        }
-        for(int i = 1; i <= 20; i++) {
-            if(i % 2 == 0) {
-                System.out.println("i 는 " + i);
-            }
-        }
-        for(int i = 1; i <= 20; i++) {
-            if(i % 3 == 0) {
-                System.out.println("i 는 " + i);
-            }
-        }
-        for(int i = 20; i >= 1; i--) {
-            if(i % 4 == 0) {
-                System.out.println("i 는 " + i);
-            }
-        }
+        } while(input != 0);
+
     }
 }
