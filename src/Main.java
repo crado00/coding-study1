@@ -4,16 +4,28 @@ import java.util.Scanner;
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 public class Main {
 
-
-
-    public static int addNum(int num1, int num2) {
-        return num1 + num2;
+    public static int add(int a, int b) {
+        return a + b;
     }
-    public static void main(String[] args) {
-        int number = addNum(10, 7);
-        int number2 = addNum(5, 6);
 
-        System.out.println(number);
-        System.out.println(number2);
+    public static int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void greet() {
+        System.out.println("Hello World!");
+    }
+
+    public static void greet(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("a + b = " + add(1, 2));
+        System.out.println("a + b + c = " + add(3, 4, 5));
+
+        System.out.println();
+        greet();
+        greet("Alise");
     }
 }
