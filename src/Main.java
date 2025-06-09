@@ -6,24 +6,31 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int[] numbers = {1, 2, 3, 4, 5, 6, 7};
+        String message = "Hello, Java!";
 
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.println(numbers[i]);
-        }
+        System.out.println(message.length());
+        System.out.println(message);
+        System.out.println(message.indexOf("J"));
+        System.out.println(message.charAt(5));
+
+
 
         System.out.println();
 
-        /*
-        for (int i = 0; i < 10000; i++) {
-            System.out.println(numbers[i % numbers.length]);
-        }*/
-
-        int[] arr = {2, 4, 6, 8, 10};
-        int sum = 0;
-        for (int i = 0; i < arr.length; i++) {
-            sum += arr[i];
+        for (int i = 0; i < message.length(); i++) {
+            if (message.charAt(i) == 'l') {
+                System.out.println(message.charAt(i));
+                break;
+            }
         }
-        System.out.println(sum);
+
+        System.out.println(message.substring(0));
+        System.out.println(message.substring(1));
+        System.out.println(message.substring(2, 3));
+
+        String address = "0x120819f5573ac3A530e6172b1581613A09b4b338";
+        System.out.println(address.substring(0, 7)
+                + "..."
+                + address.substring(address.length() - 5));
     }
 }
