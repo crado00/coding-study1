@@ -6,31 +6,43 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String message = "Hello, Java!";
 
-        System.out.println(message.length());
-        System.out.println(message);
-        System.out.println(message.indexOf("J"));
-        System.out.println(message.charAt(5));
+       Person person = new Person();
+       Car car = new Car();
+
+       car.brand = "s";
+       car.year = 1;
+
+       person.name = "김재준";
+       person.age = 27;
+       person.NBTI = "ENFP";
+
+       car.displayInfo();
+
+       person.sayHello();
+       person.work();
+    }
+}
+
+class Car {
+    String brand;
+    int year;
+
+    public void displayInfo() {
+        System.out.println("브랜드: " + brand + " 연식: " + year);
+    }
+}
+class Person {
+    String name;
+    int age;
+    String NBTI;
 
 
+    public void sayHello() {
+        System.out.println("안녕하세요? 저는  " + name + "입니다. 저의 나이는 " + age + "세 입니다.");
+    }
 
-        System.out.println();
-
-        for (int i = 0; i < message.length(); i++) {
-            if (message.charAt(i) == 'l') {
-                System.out.println(message.charAt(i));
-                break;
-            }
-        }
-
-        System.out.println(message.substring(0));
-        System.out.println(message.substring(1));
-        System.out.println(message.substring(2, 3));
-
-        String address = "0x120819f5573ac3A530e6172b1581613A09b4b338";
-        System.out.println(address.substring(0, 7)
-                + "..."
-                + address.substring(address.length() - 5));
+    public void work(){
+        System.out.println("일하는 중...");
     }
 }
