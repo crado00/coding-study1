@@ -7,42 +7,51 @@ public class Main {
 
     public static void main(String[] args) {
 
-       Person person = new Person();
-       Car car = new Car();
+        Person p1 = new Person("홍성현", 20);
+        Person p2 = new Person("h662", 60);
 
-       car.brand = "s";
-       car.year = 1;
+        //p1.name = "김재준";
+        //p2.name = "h662";
 
-       person.name = "김재준";
-       person.age = 27;
-       person.NBTI = "ENFP";
+        Car c1 = new Car("Hyundai",15, "sonata");
+        Car c2 = new Car("Mercedes-Benz", 23, "E320d");
+        c2.nickName = "사";
 
-       car.displayInfo();
-
-       person.sayHello();
-       person.work();
+        c1.displayInfo();
+        c2.displayInfo();
     }
+}
+
+class Person {
+    String name;
+    int age;
+
+    public Person() {}
+    public Person(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+
 }
 
 class Car {
     String brand;
     int year;
-
-    public void displayInfo() {
-        System.out.println("브랜드: " + brand + " 연식: " + year);
+    String model;
+    String nickName;
+    public Car(String brand, int year, String model){
+        this.brand = brand;
+        this.year = year;
+        this.model = model;
     }
-}
-class Person {
-    String name;
-    int age;
-    String NBTI;
-
-
-    public void sayHello() {
-        System.out.println("안녕하세요? 저는  " + name + "입니다. 저의 나이는 " + age + "세 입니다.");
+    public Car(String brand, int year, String model, String nickName){
+        this.brand = brand;
+        this.year = year;
+        this.model = model;
+        this.nickName = nickName;
     }
 
-    public void work(){
-        System.out.println("일하는 중...");
+    public void displayInfo(){
+        System.out.println("브랜드: " + brand + " 연식: " + year + " 모델명: " + model + (this.nickName != null ?  " 별명: "+ this.nickName : ""));
     }
 }
