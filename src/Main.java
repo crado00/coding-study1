@@ -33,6 +33,7 @@ public class Main {
                     item = "멜론소다";
                     balance -= 1000;
                     break;
+
                 case 2:
                     if(balance - 1600 < 0){
                         break;
@@ -40,6 +41,7 @@ public class Main {
                     item = "콜라";
                     balance -= 1600;
                     break;
+
                 case 3:
                     if(balance - 1500 < 0){
                         break;
@@ -47,6 +49,7 @@ public class Main {
                     item = "사이다";
                     balance -= 1500;
                     break;
+
                 case 4:
                     if(balance - 1500 < 0){
                         break;
@@ -54,6 +57,7 @@ public class Main {
                     item = "데자와";
                     balance -= 1500;
                     break;
+
                 case 5:
                     if(balance - 1800 < 0){
                         break;
@@ -61,6 +65,7 @@ public class Main {
                     item = "포카리스웨트";
                     balance -= 1800;
                     break;
+
                 case 6:
                     if(balance - 1700 < 0){
                         break;
@@ -68,26 +73,32 @@ public class Main {
                     item = "파워에이드";
                     balance -= 1700;
                     break;
+
                 default:
                     System.out.println("다시 입력해 주세요");
             }
+
             if(item != ""){
                 if(item == "종료"){
                     System.out.println("종료되었습니다. 커스름돈은 " + balance + "원 입니다.");
                     break;
+
                 }
                     System.out.println(item != "" ? "당신이 선택한 음료는 " + item + "입니다." : "다시 입력해 주세요.");
                     System.out.println("잔금이" + balance + "만큼 있습니다.");
                     item = "";
-                System.out.println();
+                    System.out.println();
+
             }else {
                 System.out.println("잔액이 부족합니다.");
                 System.out.println("잔금이 " + balance + "원 만큼 있습니다.");
                 System.out.println("금액을 추가해 주세요.(구메 종료: 0)");
                 int addAmount = scanner.nextInt();
+
                 if(addAmount == 0){
                     System.out.println("종료되었습니다. 커스름돈은 " + balance + "원 입니다.");
                     break;
+
                 }else {
                     balance += addAmount;
                     System.out.println("총 금액은 " + balance + "입니다.");
@@ -95,7 +106,7 @@ public class Main {
 
             }
         }
-
-
+        
     }
+
 }
