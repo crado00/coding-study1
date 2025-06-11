@@ -6,52 +6,23 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
+        //System.out.print("프린트 함수랑");
+        //System.out.println("프린트 함수 LN 함수의");
+        //System.out.print("차이점을 찾아서");
+        //System.out.println("디스코드 채팅으로");
+        //System.out.print("알려주시면");
+        //System.out.println("좋을것 같습니다.");
 
-        Person p1 = new Person("홍성현", 20);
-        Person p2 = new Person("h662", 60);
+        //System.out.println("\"안녕하세요?\"");
 
-        //p1.name = "김재준";
-        //p2.name = "h662";
+        //String name = "Son";
+        //int backNumber = 7;
 
-        Car c1 = new Car("Hyundai",15, "sonata");
-        Car c2 = new Car("Mercedes-Benz", 23, "E320d");
-        c2.nickName = "사";
+        //System.out.println(name + backNumber);
+        //System.out.println((name + backNumber).getClass());
+        int age = 20;
+        double pi = 3.14159;
 
-        c1.displayInfo();
-        c2.displayInfo();
-    }
-}
-
-class Person {
-    String name;
-    int age;
-
-    public Person() {}
-    public Person(String name, int age){
-        this.name = name;
-        this.age = age;
-    }
-
-}
-
-class Car {
-    String brand;
-    int year;
-    String model;
-    String nickName;
-    public Car(String brand, int year, String model){
-        this.brand = brand;
-        this.year = year;
-        this.model = model;
-    }
-    public Car(String brand, int year, String model, String nickName){
-        this.brand = brand;
-        this.year = year;
-        this.model = model;
-        this.nickName = nickName;
-    }
-
-    public void displayInfo(){
-        System.out.println("브랜드: " + brand + " 연식: " + year + " 모델명: " + model + (this.nickName != null ?  " 별명: "+ this.nickName : ""));
+        System.out.printf("나이: %d, 원주율: %.2f", age, pi);
     }
 }
