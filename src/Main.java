@@ -6,107 +6,80 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Cal cal = new Cal();
 
-        String item = "";
-        int balance;
-
-        System.out.println("금액을 넣어주세요.");
-        balance = scanner.nextInt();
+        double num1, num2, result;
+        char simbol;
 
 
         while (true){
-            System.out.println("=== 자판기 메뉴 ===");
-            System.out.println("잔금: " + balance + "원");
-            System.out.println("1: 멜론소다(1000)\n2: 콜라(1400)\n3: 사이다(1500)");
-            System.out.println("4: 데자와(1500)\n5: 포카리스웨트(1800)\n6: 파웡에이드(1700)");
-            System.out.println("0: 종료");
-            int choice = scanner.nextInt();
-
-            switch (choice){
-                case 0:
-                    item = "종료";
+            System.out.print("첫번째 값을 입력해 주세요: ");
+            num1 = scanner.nextDouble();
+            System.out.println();
+            while (true) {
+                System.out.println("연산 기호를 입력해 주세요(+, -, *, /): ");
+                simbol = scanner.next().charAt(0);
+                if (simbol == '+' || simbol == '-' || simbol == '*' || simbol == '/') {
                     break;
-                case 1:
-                    if(balance - 1000 < 0){
-                        break;
-                    }
-                    item = "멜론소다";
-                    balance -= 1000;
-                    break;
-
-                case 2:
-                    if(balance - 1600 < 0){
-                        break;
-                    }
-                    item = "콜라";
-                    balance -= 1600;
-                    break;
-
-                case 3:
-                    if(balance - 1500 < 0){
-                        break;
-                    }
-                    item = "사이다";
-                    balance -= 1500;
-                    break;
-
-                case 4:
-                    if(balance - 1500 < 0){
-                        break;
-                    }
-                    item = "데자와";
-                    balance -= 1500;
-                    break;
-
-                case 5:
-                    if(balance - 1800 < 0){
-                        break;
-                    }
-                    item = "포카리스웨트";
-                    balance -= 1800;
-                    break;
-
-                case 6:
-                    if(balance - 1700 < 0){
-                        break;
-                    }
-                    item = "파워에이드";
-                    balance -= 1700;
-                    break;
-
-                default:
-                    System.out.println("다시 입력해 주세요");
-            }
-
-            if(item != ""){
-                if(item == "종료"){
-                    System.out.println("종료되었습니다. 커스름돈은 " + balance + "원 입니다.");
-                    break;
-
                 }
-                    System.out.println(item != "" ? "당신이 선택한 음료는 " + item + "입니다." : "다시 입력해 주세요.");
-                    System.out.println("잔금이" + balance + "만큼 있습니다.");
-                    item = "";
-                    System.out.println();
+                System.out.println("잘못 입력하셨습니다.");
+            }
+            System.out.println();
+            System.out.print("두번째 값을 입력해 주세요: ");
+            num2 = scanner.nextDouble();
+            if (simbol == '/' && (num1 == 0 || num2 == 0)) {
+                System.out.println("0은 나눌 수 없습니다.");
+            } else {
+                result = cal.cale(num1, num2, simbol);
+                System.out.println(num1 +" " + simbol + " " + num2 + " = "+result + "입니다.");
 
-            }else {
-                System.out.println("잔액이 부족합니다.");
-                System.out.println("잔금이 " + balance + "원 만큼 있습니다.");
-                System.out.println("금액을 추가해 주세요.(구메 종료: 0)");
-                int addAmount = scanner.nextInt();
+            }
+            System.out.println();
 
-                if(addAmount == 0){
-                    System.out.println("종료되었습니다. 커스름돈은 " + balance + "원 입니다.");
+            System.out.println("계산기를 종료하시겠습니까?(Y or N)");
+            while (true){
+                char select = scanner.next().charAt(0);
+                if(select == 'y' ||select == 'Y' ){
+                    System.out.println("계산기를 종료합니다.");
+                    return;
+                }else if(select == 'n' || select == 'N'){
                     break;
-
                 }else {
-                    balance += addAmount;
-                    System.out.println("총 금액은 " + balance + "입니다.");
+                    System.out.println("잘못입력하셨습니다. 다시 입력해 주세요");
                 }
-
+                System.out.println();
             }
+
         }
-        
     }
 
+}
+
+class Cal {
+    double result;
+    public double cale(double num1, double num2, char simbol){
+
+        switch (simbol){
+            case '+':
+                result = num1 + num2;
+                break;
+
+            case '-':
+                result = num1 - num2;
+                break;
+
+            case '*':
+                result = num1 * num2;
+                break;
+
+            case '/':
+                result = num1 / num2;
+                break;
+
+            default:
+                System.out.println("잘못 입력하셧습니다.");
+                return  0;
+        }
+        return result;
+    }
 }
