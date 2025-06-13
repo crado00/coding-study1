@@ -1,3 +1,4 @@
+
 public class B implements Player {
     final boolean[] opponentHistory;
     int recordIndex = 0;
