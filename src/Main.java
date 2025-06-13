@@ -1,24 +1,23 @@
-interface  Animal {
-    void makeSound();
-}
+abstract class Animal {
+    abstract void makeSound();
 
-class Dog implements Animal {
-    @Override
-    public void makeSound(){
-        System.out.println("멍멍!");
+    public void sleep() {
+        System.out.println("Zzz... 자는중...");
     }
 }
+
+class Dog extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("멍머엄어멍머어!");
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
         Animal dog = new Dog();
 
         dog.makeSound();
-
-        if(dog instanceof Dog){
-            Dog newDog = new Dog();
-
-            newDog.makeSound();
-        }
+        dog.sleep();
     }
 }
-
