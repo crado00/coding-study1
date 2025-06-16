@@ -1,54 +1,129 @@
-class CPU {
-    public int register = 0;
-    public int[] memory = {5, 10, 0};
+/* 2번째 확인
+class Car {
+    String brand;
+    Engine engine;
+    public Car(String brand){
+        this.brand = brand;
+        Engine engine = new Engine();
+        this.engine = engine;
+    }
 
-    private static final int LOAD = 1;
-    private static final int SAVE = 2;
-    private static final int ADD = 3;
-    private static final int SUB = 4;
-    private static final int HALT = 5;
-
-    private int[][] program = {
-            { LOAD, 0 },         // register = memory[0]
-            { ADD, 1 },         // register = register + memory[1]
-            { SAVE, 2 },         // memory[2] = register
-            { HALT, 0 }         // stop program execution
-    };
-
-    public void executeProgram() {
-        int pc = 0;
-
-        while(true) {
-            int opcode = program[pc][0];
-            int operand = program[pc][1];
-            switch (opcode){
-                case LOAD:
-                    register = memory[operand];
-                    System.out.println("MOV: Loading memory[" + operand +
-                            " (" + memory[0] + ") into register.");
-                    break;
-                case SAVE:
-                    register = memory[operand];
-                    System.out.println("MOV: saving memory[" + operand +
-                            " (" + memory[0] + ") into register.");
-                    break;
-                case ADD:
-                    register = memory[operand];
-                    System.out.println("MOV: adding memory[" + operand +
-                            " (" + memory[0] + ") into register.");
-                    break;
-                case HALT:
-                    register = memory[operand];
-                    System.out.println("MOV: Loading memory[" + operand +
-                            " (" + memory[0] + ") into register.");
-                    break;
-            }
+    class Engine {
+        public void start(){
+            System.out.println("the engine of " + brand + "is starting.");
         }
+    }
+
+    public void startEngine() {
+        engine.start();
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
+ */
 
+/*4번째 확인
+class Outer {
+    private class HiddenInner {
+        void secret(){
+            System.out.println("private!");
+        }
+
+    }
+    public void reveal() {
+        HiddenInner h1 = new HiddenInner();
+        h1.secret();;
+    }
+}
+ */
+public class Main {
+    /* 1번째 확인
+    private String message = "Hello from the outer class.";
+    public class Inner {
+        void displayMessage() {
+            System.out.println("Inner says: " + message);
+        }
+    }
+
+    public void callInner(){
+        Inner inner = new Inner();
+        inner.displayMessage();
+    }
+
+     */
+/*3번째 확인
+    String outerMessage = "Hello from Outer";
+
+    class Inner {
+        void showMessage() {
+            System.out.println(outerMessage);
+        }
+    }
+ */
+    /*5번째 확인
+    interface OnClickListener {
+        void onClick();
+    }
+
+    private OnClickListener listener;
+
+    public void setOnClickListener(OnClickListener listener) {
+        this.listener = listener;
+    }
+
+    public void click() {
+        if(listener != null) {
+            listener.onClick();
+        }
+    }
+
+    private class ClickHandler implements OnClickListener {
+        @Override
+        public void onClick() {
+            System.out.println("Button was clicked!");
+        }
+    }
+
+    public void simulate() {
+        setOnClickListener(new ClickHandler());
+        click();
+    }
+
+     */
+
+    private String data = "Outer data";
+
+    class  Inner {
+        void printData() {
+            System.out.println(data);
+        }
+    }
+
+    public Inner createInner() {
+        return new Inner();
+    }
+    public static void main(String[] args) {
+        //Outer outer = new Outer(); 1번째 확인
+        //outer.callInner(); 1번째 확인
+
+        //Car car = new Car("자동차"); 2번째 확인
+        //car.startEngine(); 2번째 확인
+
+        //Main main = new Main();3번째 확인
+        //Main.Inner inner = main.new Inner();3번째 확인
+
+        //inner.showMessage();3번째 확인
+        //Outer outer = new Outer();4번째 확인
+
+        //Main btn = new Main();5번째 확인
+        //btn.simulate();5번째 확인
+
+        Main outer = new Main();
+        Main.Inner inner = outer.createInner();
+        inner.printData();
+
+        outer = null;
+        inner.printData();
+        inner = null;
+        inner.printData();
     }
 }
