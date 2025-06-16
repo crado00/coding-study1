@@ -89,7 +89,7 @@ public class Main {
     }
 
      */
-
+/*6번째 확인
     private String data = "Outer data";
 
     class  Inner {
@@ -100,6 +100,15 @@ public class Main {
 
     public Inner createInner() {
         return new Inner();
+    }
+ */
+
+    class Outer {
+        static class StaticInner{
+            void hello () {
+            System.out.println("Hi");
+        }
+        }
     }
     public static void main(String[] args) {
         //Outer outer = new Outer(); 1번째 확인
@@ -116,7 +125,7 @@ public class Main {
 
         //Main btn = new Main();5번째 확인
         //btn.simulate();5번째 확인
-
+/*6번째 확인
         Main outer = new Main();
         Main.Inner inner = outer.createInner();
         inner.printData();
@@ -125,5 +134,11 @@ public class Main {
         inner.printData();
         inner = null;
         inner.printData();
+
+
+ */
+
+        Outer.StaticInner inner = new Outer.StaticInner();
+        inner.hello();
     }
 }
