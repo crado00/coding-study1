@@ -1,17 +1,28 @@
 
 public class Main {
     public static void main(String[] args) {
-        String string = "123a";
+        String input = "234";
 
         try {
-            int num = convertToInt(string);
+            int result = multiply(input);
+
+            System.out.println(result);
+
         }catch (NumberFormatException e) {
-            System.out.println("숫자 형식 오류");
+            System.out.println(e.getMessage());
         }
+
     }
 
-    public static int convertToInt(String s) throws NumberFormatException{
-        return Integer.parseInt(s);
+    public static int multiply(String input) throws NumberFormatException {
+        if(input.length() != 2){
+            throw new NumberFormatException("숫자 두개 여야함");
+        }
+        int inputA = Integer.parseInt(input.substring(0,1));
+        int inputB = Integer.parseInt(input.substring(1));
+
+        return inputA * inputB;
+
     }
 }
 
