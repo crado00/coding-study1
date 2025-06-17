@@ -1,7 +1,7 @@
 
 public class Main {
     public static void main(String[] args) {
-        String input = "234";
+        String input = "2,a34";
 
         try {
             int result = multiply(input);
@@ -10,6 +10,7 @@ public class Main {
 
         }catch (NumberFormatException e) {
             System.out.println(e.getMessage());
+            System.out.println("에러!");
         }
 
     }
