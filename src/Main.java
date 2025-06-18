@@ -1,19 +1,16 @@
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException{
+        Thread worker = new Thread(() -> {
+            try {
+                System.out.println("Worker: 작업 시작");
+                Thread.sleep(10000);
+                System.out.println("Worker: 작업 완료");
 
-        int a = 10;
-        int b = 2;
-
-        try {
-            int result = a / b;
-
-            System.out.println("result: " + result);
-        }catch (ArithmeticException e){
-            System.out.println("Error: 0으로 나눔");
-        }finally {
-            System.out.println("Cleanup: 이 블록은 항상 실행됩니다.");
-        }
+            } catch (InterruptedException e) {
+                System.out.println("Worker: 중단 신호 수신, 정리 작업 후 종료");
+            }
+        });
     }
 
 }
