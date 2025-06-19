@@ -1,23 +1,28 @@
 import java.util.*;
-//제너릭 클래스
 import java.util.ArrayList;
 import java.util.List;
 
-class Box {
-    public static <T> void displayArray(List<T> array) {
-        for(T element: array) {
-            System.out.println(element);
-        }
-    }
-}
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
+        List<Integer> numbers = Arrays.asList(1, 2, 3);
+        List<String> words = Arrays.asList("A", "B", "C");
 
-        List<String> words = List.of("apple", "banana", "cherry");
+        printElements(numbers);
+        printElements(words);
+    }
+    public static void printElements(List<?> list) {
+        for (Object o: list) {
+            System.out.println(o);
+        }
+    }
+    public static double sumList(List<? extends Number> list) {
+        double sum = 0;
 
-        Box.displayArray(numbers);
-        Box.displayArray(words);
+        for(Number n: list) {
+            sum += n.doubleValue();
+        }
+
+        return sum;
     }
 }
