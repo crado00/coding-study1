@@ -5,16 +5,9 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> numbers = Arrays.asList(1, 2, 3);
-        List<String> words = Arrays.asList("A", "B", "C");
+        List<Integer> intList = Arrays.asList(10,20,30);
 
-        printElements(numbers);
-        printElements(words);
-    }
-    public static void printElements(List<?> list) {
-        for (Object o: list) {
-            System.out.println(o);
-        }
+        System.out.println(sumList(intList));
     }
     public static double sumList(List<? extends Number> list) {
         double sum = 0;
