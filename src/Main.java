@@ -1,8 +1,11 @@
 import java.util.*;
 //제너릭 클래스
-class  Box<T> {
-    public static <T> void displayArray(T[] array){
-        for (T element: array) {
+import java.util.ArrayList;
+import java.util.List;
+
+class Box {
+    public static <T> void displayArray(List<T> array) {
+        for(T element: array) {
             System.out.println(element);
         }
     }
@@ -10,12 +13,11 @@ class  Box<T> {
 
 public class Main {
     public static void main(String[] args) {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5);
 
-        Integer[] numbers = {1, 2, 3, 4, 5};
-        String[] words = {"apple", "banana", "cherry"};
+        List<String> words = List.of("apple", "banana", "cherry");
 
         Box.displayArray(numbers);
         Box.displayArray(words);
-
     }
 }
