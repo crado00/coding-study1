@@ -1,21 +1,29 @@
 import java.util.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> intList = Arrays.asList(10,20,30);
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+        Stream<Integer> stream = numbers.stream();
 
-        System.out.println(sumList(intList));
-    }
-    public static double sumList(List<? extends Number> list) {
-        double sum = 0;
-
-        for(Number n: list) {
-            sum += n.doubleValue();
+        int result = numbers.stream()
+                .filter((n ) -> n % 2 == 0)
+                .mapToInt(Integer::intValue)
+                .sum();
+        System.out.println(result);
+        /*
+        System.out.println();
+        int sum = 0;
+        for (int i = 0; i < numbers.size(); i ++){
+            if(numbers.get(i) % 2 == 0){
+                sum += numbers.get(i);
+            }
         }
+        System.out.println(sum);
 
-        return sum;
+         */
     }
 }
