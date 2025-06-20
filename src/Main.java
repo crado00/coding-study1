@@ -6,12 +6,26 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        List<Double> values = Arrays.asList(10.0, 20.0, 30.0, 40.0, 50.0);
+        MyTread tread = new MyTread();
+        tread.start();
+        tread.run();
 
-        double avg = values.stream()
-                .mapToDouble(Double::doubleValue)
-                .average().orElse(0.0);
+        System.out.println("나를 막지마");
+    }
+}
 
-        System.out.println(avg);
+class MyTread extends Thread    {
+    @Override
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("My Thread: " + i);
+
+            try {
+                Thread.sleep(5000);
+            }catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
     }
 }
